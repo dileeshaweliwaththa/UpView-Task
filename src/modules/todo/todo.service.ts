@@ -23,7 +23,7 @@ export class TodoService {
    * @throws {NotFoundException} - if todo is not found
    * @returns - created todo
    */
-  async create(createTodoDto: CreateTodoDto) {
+  async create(createTodoDto: CreateTodoDto): Promise<Todo> {
 
     const todo: Todo = new Todo();
     todo.title = createTodoDto.title;
@@ -41,7 +41,7 @@ export class TodoService {
    * @returns - all todos
    * @throws {NotFoundException} - if no todos are found
    */
-  async findAll() {
+  async findAll(): Promise<Todo[]> {
     const findAllTodos = await this.todoRepository.findAll();
     if(!findAllTodos || findAllTodos.length === 0){
       throw new NotFoundException({ message: Messages.ERROR.TODO_NOT_FOUND, status_code: StatusCode.ERROR_CODE.NOT_FOUND});
@@ -55,7 +55,7 @@ export class TodoService {
    * @throws {NotFoundException} - if todo is not found
    * @returns - todo found
    */
-  async findOne(id: string) {
+  async findOne(id: string): Promise<Todo> {
     console.log("id",id);
     const findOneByID = await this.todoRepository.findOneById(id);
     if(!findOneByID){
@@ -71,7 +71,7 @@ export class TodoService {
    * @throws {NotFoundException} - if todo is not found
    * @returns - updated todo
    */
-  async update(id: string, updateTodoDto: UpdateTodoDto) {
+  async update(id: string, updateTodoDto: UpdateTodoDto): Promise<Todo> {
 
     console.log("id",id);
     const getTodoById = await this.todoRepository.findOneById(id);
