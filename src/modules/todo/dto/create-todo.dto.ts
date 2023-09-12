@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { ITodo } from "../interfaces/todo.interface";
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsString } from "class-validator";
 
 export class CreateTodoDto{
 
@@ -9,6 +9,7 @@ export class CreateTodoDto{
         example: 'Todo title'
     })
     @IsNotEmpty()
+    @IsString()
     title: string;
 
     @ApiProperty({
@@ -16,6 +17,7 @@ export class CreateTodoDto{
         example: 'Todo description'
     })
     @IsNotEmpty()
+    @IsString()
     description: string;
 
     @ApiProperty({
@@ -23,6 +25,7 @@ export class CreateTodoDto{
         example: 'INCOMPLETED'
     })
     @IsNotEmpty()
+    @IsString()
     status: string;
 
 }

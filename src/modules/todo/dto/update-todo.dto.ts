@@ -1,13 +1,15 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateTodoDto } from './create-todo.dto';
-import { IsNotEmpty } from 'class-validator';
+import { IsEnum, IsNotEmpty } from 'class-validator';
+import { TodoStatus } from 'src/core/enum/todo-status';
 
 export class UpdateTodoDto {
 
     @ApiProperty({
         description: 'The Status of the todo',
-        example: 'Todo Status'
+        enum: TodoStatus,
+        enumName: 'TodoStatus'
     })
-    @IsNotEmpty()
+    @IsEnum(TodoStatus)
     status: string;
 }
