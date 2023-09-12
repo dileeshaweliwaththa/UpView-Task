@@ -1,0 +1,41 @@
+GUIDE
+
+1. Clone the repository
+
+First, you need to clone the repository from GitHub. You can do this by running the following command:
+git clone https://github.com/dileeshaweliwaththa/UpView-Task.git 
+
+
+2. Navigate to the project directory
+
+Once cloning is done, navigate to the project directory (the name you gave your repo) with this command:
+cd your-repo-name
+
+3. Install dependencies
+
+You have to install the necessary package dependencies. You can do this by running:
+npm install
+
+4.Set up the .env file
+
+Next, you need to set up your environment variables. You should see a file named .env.example in the project root directory. Make a copy of this file and name it .env. Open the .env file and fill in the necessary details as per your database configuration and other service details that conform with the *.env.example.
+
+The base variables might look like this:
+NAME=Your-Project-Name
+DESCRIPTION=Your-Project-Description
+GLOBAL_PREFIX=api
+API_VERSION=v1
+PORT=Custom-Port
+
+DB_HOST=Your-Db-Host
+DB_PORT=Your-Db-Port
+DB_USERNAME=Your-Db-Username
+DB_PASSWORD=Your-Db-Password
+DB_NAME=Your-Db-Name
+
+5.Run the project
+
+Now that everything is set up, you can now run the project. To do this, you need to use this command:
+npm run start
+
+6. SWAGGER URL = http://localhost:3000/api/v1/
